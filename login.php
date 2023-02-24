@@ -15,22 +15,22 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="d_process_login.php" method="post">
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="username" >
+                                <span class="input-group-text" id="txtUser" ><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="username" name ="txtUser" >
                             </div>
 
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" class="form-control" placeholder="password" >
+                                <span class="input-group-text" id="txtPass" ><i class="fas fa-key"></i></span>
+                                <input type="password" class="form-control" placeholder="password" name ="txtPass">
                             </div>
                             
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                                <input type="submit" value="Login" class="btn float-end login_btn" name ="btnLogin">
                             </div>
                         </form>
                     </div>

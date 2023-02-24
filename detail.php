@@ -19,6 +19,7 @@ $statement = $pdo->prepare($sql);
 $statement->execute([':id' => $id_category]);   
 $category    = $statement->fetch();
 ?>
+<link rel="stylesheet" href="css/style.css">
     <main class="container mt-5">
                 <div class="row mb-5">
                     <div class="col-sm-4">
