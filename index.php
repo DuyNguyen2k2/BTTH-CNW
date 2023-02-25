@@ -1,6 +1,9 @@
 <?php
 include('./include/header.php');
-include('./include/database-connection.php')
+include('./include/database-connection.php');
+$sql       = "SELECT ma_bviet,hinhanh,tieude FROM baiviet;";
+$statement = $pdo->query($sql);
+$posts   = $statement->fetchAll();
 ?>
 <link rel="stylesheet" href="css/style.css">
 <div>
@@ -39,16 +42,18 @@ include('./include/database-connection.php')
 <main class="container-fluid mt-3">
     <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
     <div class="row">
+    <?php foreach ($posts as $post) { ?>
         <div class="col-sm-3">
             <div class="card mb-2" style="width: 100%;">
-                <img src="images/songs/cayvagio.jpg" class="card-img-top" alt="...">
+                <img src="<?= htmlspecialchars($post['hinhanh']) ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title text-center">
-                        <a href="./detail.php" class="text-decoration-none">Cây, lá và gió</a>
+                        <a href="./detail.php?id=<?= htmlspecialchars($post['ma_bviet']) ?>" class="text-decoration-none"><?= htmlspecialchars($post['tieude']) ?></a>
                     </h5>
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
 </main>
 <?php

@@ -37,7 +37,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
+                    
                 </ul>
+                <form class="d-flex">
+                    <a class="btn btn-primary" href="../include/logout.php" role="button">Đăng xuất</a>
+                </form>
                 </div>
             </div>
         </nav>
