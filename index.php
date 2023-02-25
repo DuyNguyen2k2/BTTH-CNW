@@ -1,9 +1,23 @@
 <?php
 include('./include/header.php');
 include('./include/database-connection.php');
-$sql       = "SELECT ma_bviet,hinhanh,tieude FROM baiviet;";
+$titel_post = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_STRING);
+if (empty($titel_post))
+{
+    $titel_check = "";
+}
+else
+{
+    $titel_check = "WHERE tieude like '%$titel_post%'";
+}
+$sql       = "SELECT ma_bviet,hinhanh,tieude FROM baiviet $titel_check;";
 $statement = $pdo->query($sql);
 $posts   = $statement->fetchAll();
+$error = "";
+if (empty($posts))
+{
+    $error = "Không tìm thấy kết quả nào cho ".$titel_post;
+}
 ?>
 <link rel="stylesheet" href="css/style.css">
 <div>
@@ -42,6 +56,7 @@ $posts   = $statement->fetchAll();
 <main class="container-fluid mt-3">
     <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
     <div class="row">
+    <h5 class="text-center mb-3 " style='color:#888888'><?= htmlspecialchars($error)?></h5>
     <?php foreach ($posts as $post) { ?>
         <div class="col-sm-3">
             <div class="card mb-2" style="width: 100%;">
