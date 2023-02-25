@@ -1,3 +1,6 @@
+<?php
+    $term  = filter_input(INPUT_GET, 'term');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
                 <div class="my-logo">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.php">
                         <img src="images/logo2.png" alt="" class="img-fluid">
                     </a>
                 </div>
@@ -29,8 +32,8 @@
                     <a class="nav-link active_login" href="./login.php">Đăng nhập</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
+                <form class="d-flex" role="search" method="get" action="index.php">
+                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search" name = 'term' value="<?= htmlspecialchars($term) ?>">
                     <button class="btn btn-outline-success" type="submit">Tìm</button>
                 </form>
                 </div>
