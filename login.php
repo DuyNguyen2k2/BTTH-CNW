@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if(isset($_SESSION['check'])){
+        header("Location:admin/index.php");
+    }
+?>
+<?php
     include './include/header.php';
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,13 +31,22 @@
                                 <span class="input-group-text" id="txtPass" ><i class="fas fa-key"></i></span>
                                 <input type="password" class="form-control" placeholder="password" name ="txtPass">
                             </div>
-                            
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
+                            </div>
+                            <div class="d-flex justify-content-center">
+                            <?php
+                            if(isset($_GET['error'])){
+                            echo "<h5 style='color:red'>{$_GET['error']}</h5>";
+                            }
+                            ?>
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Login" class="btn float-end login_btn" name ="btnLogin">
                             </div>
+                            
+                            
+                        
                         </form>
                     </div>
                     <div class="card-footer">
@@ -41,6 +56,7 @@
                         <div class="d-flex justify-content-center">
                             <a href="#" class="text-warning text-decoration-none">Forgot your password?</a>
                         </div>
+                        
                     </div>
                 </div>
 

@@ -1,9 +1,12 @@
 <?php
-include('../include/database-connection.php');
-$sql = "SELECT count(*) FROM baiviet"; 
+include('../include/Check_session.php')
+?>
+<?php
+include('../include/database-connection.php'); 
 $count_posts = $pdo->query('select count(*) from baiviet')->fetchColumn(); 
 $count_author = $pdo->query('select count(*) from theloai')->fetchColumn(); 
 $count_category = $pdo->query('select count(*) from tacgia')->fetchColumn(); 
+$count_users = $pdo->query('select count(*) from users')->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,6 +48,9 @@ $count_category = $pdo->query('select count(*) from tacgia')->fetchColumn();
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                 </ul>
+                <form class="d-flex">
+                    <a class="btn btn-primary" href="../include/logout.php" role="button">Đăng xuất</a>
+                </form>
                 </div>
             </div>
         </nav>
@@ -60,7 +66,7 @@ $count_category = $pdo->query('select count(*) from tacgia')->fetchColumn();
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                        <?= htmlspecialchars($count_users) ?>
                         </h5>
                     </div>
                 </div>

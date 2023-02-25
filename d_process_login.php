@@ -4,7 +4,7 @@
     if(isset($_POST['btnLogin'])){
         if (empty($_POST['txtUser']) || empty(($_POST['txtPass'])))
         {
-        header("Location:login.php");
+        header("Location:login.php?error=Vui lòng điền mật khẩu tài khoản");
         }
         else
         {
@@ -24,7 +24,7 @@
                 } 
                 else
                 {
-                    header("Location:login.php");
+                    header("Location:login.php?error=Sai Mật khẩu tài khoản");
                 }
         }
     }
