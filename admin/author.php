@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style_login.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
@@ -42,6 +44,14 @@
         </nav>
 
     </header>
+    <?php 
+
+        include('../include/database-connection.php');
+        $sql = "SELECT * FROM tacgia";
+        // WHERE baiviet.ma_tloai = theloai.ma_tloai AND baiviet.ma_tgia = tacgia.ma_tgia ORDER BY ma_bviet ASC";
+        $select = $pdo->query($sql);
+
+    ?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
@@ -57,19 +67,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php while($row = $select->fetch()){?> 
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Nhacvietplus</td>
-                            <td>
-                                <a href="edit_author.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Sưu tầm</td>
+                            <th scope="row"><?= $row['ma_tgia']?></th>
+                            
+                            <td style="max-width: 100px;"><?= $row['ten_tgia']?></td>
+                            
                             <td>
                                 <a href="edit_author.php?id=2"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
@@ -77,7 +80,7 @@
                                 <a href=""><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-                       
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

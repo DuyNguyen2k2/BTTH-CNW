@@ -42,6 +42,9 @@
         </nav>
 
     </header>
+    
+    
+
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
@@ -49,18 +52,23 @@
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới tác giả</h3>
                 <form action="process_add_author.php" method="post">
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblAuName">Tên tác giả</span>
+                        <span class="input-group-text" id="txtAuName">Tên tác giả</span>
                         <input type="text" class="form-control" name="txtAuName" >
+                    
                     </div>
+                    
+
 
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Thêm" class="btn btn-success">
+                        <input type="submit" value="Thêm" class="btn btn-success" name = "btnAuthor">
                         <a href="author.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
         </div>
     </main>
+    
+
     <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
     </footer>
