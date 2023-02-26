@@ -1,3 +1,10 @@
+<?php
+include('../include/database-connection.php');
+$sql = "SELECT count(*) FROM baiviet"; 
+$count_posts = $pdo->query('select count(*) from baiviet')->fetchColumn(); 
+$count_author = $pdo->query('select count(*) from theloai')->fetchColumn(); 
+$count_category = $pdo->query('select count(*) from tacgia')->fetchColumn(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +74,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            10
+                        <?= htmlspecialchars($count_author) ?>
                         </h5>
                     </div>
                 </div>
@@ -81,7 +88,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            20
+                        <?= htmlspecialchars($count_category) ?>
                         </h5>
                     </div>
                 </div>
@@ -95,7 +102,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                        <?= htmlspecialchars($count_posts) ?>
                         </h5>
                     </div>
                 </div>
