@@ -38,7 +38,7 @@
                             <td style="max-width: 200px;"><?= $row['noidung']?></td>
                             <td style="max-width: 100px;"><?= $row['ten_tgia']?></td>
                             <td style="max-width: 100px;"><?= $row['ngayviet']?></td>
-                            <td><img src="..<?= $row['hinhanh']?>" alt="" style="height: 50px; width: 100%; object-fit: contain;"></td>
+                            <td><img src="../<?= $row['hinhanh']?>" alt="" style="height: 50px; width: 100%; object-fit: contain;"></td>
                             <td>
                                 <a href="edit_article.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
