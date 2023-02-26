@@ -52,9 +52,7 @@
                         <span class="input-group-text" id="lblAuName">Tên tác giả</span>
                         <input type="text" class="form-control" name="txtAuName" >
                     </div>
-<?php
-include('./include/database-connection.php');
-?>
+
                     <div class="form-group  float-end ">
                         <input type="submit" value="Thêm" class="btn btn-success">
                         <a href="author.php" class="btn btn-warning ">Quay lại</a>
