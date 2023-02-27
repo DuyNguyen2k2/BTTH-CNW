@@ -75,11 +75,11 @@
                             </td>
                             
                             <td>
-                                <a href="edit_author.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="edit_author.php?id=<?=$row["ma_tgia"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
 
                             <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                                <a href="process_edit_author.php?btn=xóa&id=<?=$row["ma_tgia"]?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
