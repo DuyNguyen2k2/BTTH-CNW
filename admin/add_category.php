@@ -1,3 +1,6 @@
+<?php
+include('../include/Check_session.php')
+?>
 <?php 
     include('./include/header.php');
 ?>

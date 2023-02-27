@@ -10,7 +10,7 @@ if(isset($_POST['btn']) || isset($_GET['btn'])){
     switch($btn){
         case 'Thêm':
             if(!empty(trim($tentheloai))){
-                $statement = $pdo->query("insert into theloai values(null,'$tentheloai',null)");
+                $statement = $pdo->query("insert into theloai values(null,'$tentheloai',0)");
                 header('location:../category.php');
             }
             else{
@@ -29,15 +29,16 @@ if(isset($_POST['btn']) || isset($_GET['btn'])){
                 header("location:../edit_category.php?id=$ma_tloai&mess=$mess");
             }
             break;
-        case 'Xóa':
+        case 'xóa':
             $ma_tloai_xoa = $_GET['id'];
+            echo $ma_tloai_xoa;
             $aricles = $pdo->query("select * from baiviet where ma_tloai = $ma_tloai_xoa")->fetchAll();
             if(count($aricles)>0){
                 echo "<div>Bạn cần xóa các bài viết có mã: ";
                 foreach($aricles as $aricle){
                     echo "<br>id = ".$aricle['ma_bviet'];
                 }
-                echo '</div> <a href="../article.php" style="text-decoration: none; background: cadetblue"> OK </a>';
+                echo '</div> <a href="./article.php" style="text-decoration: none; background: cadetblue"> OK </a>';
             }
             else{
                 $pdo->query("delete from theloai where ma_tloai = $ma_tloai_xoa");
