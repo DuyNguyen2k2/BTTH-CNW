@@ -30,7 +30,7 @@
                                     <a href="edit_category.php?id=<?=$category["ma_tloai"]?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href="include/process_category.php?btn=xóa&id=<?=$category["ma_tloai"]?>"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="include/process_category.php?btn=Xóa&id=<?=$category["ma_tloai"]?>"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php

@@ -10,7 +10,7 @@ if(isset($_POST['btn']) || isset($_GET['btn'])){
     switch($btn){
         case 'Thêm':
             if(!empty(trim($tentheloai))){
-                $statement = $pdo->query("insert into theloai values(null,'$tentheloai',null)");
+                $statement = $pdo->query("insert into theloai values(null,'$tentheloai')");
                 header('location:../category.php');
             }
             else{
