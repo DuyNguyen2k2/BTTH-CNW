@@ -99,16 +99,17 @@ select{
     $addArticle = "INSERT INTO `baiviet` (`ma_bviet`, `tieude`, `ten_bhat`, `ma_tloai`, `tomtat`, `noidung`, `ma_tgia`, `ngayviet`, `hinhanh`) 
     VALUES (Null, '$title', '$songName', (SELECT ma_tloai FROM theloai WHERE ten_tloai = '$genre'), 
     '$recap', '$content', (SELECT ma_tgia FROM tacgia WHERE ten_tgia = '$author'), '$date', '$path');";
-    
-    if(isset($title, $songName, $genre, $recap, $content, $author, $path) and !empty($title) and !empty($songName) and !empty($genre) and !empty($recap) and !empty($author)){
+     
+    if(isset($title, $songName, $genre, $recap, $content, $author, $path) and 
+    !empty($title) and !empty($songName) and !empty($genre) and !empty($recap) and !empty($author)){
         $statment = $pdo->prepare($addArticle);
         $statment->execute();
-        header("location:article.php");
+        echo "<script> window.location.href='article.php'</script>";
     }
     else{
-        $mess = 'Bạn chưa nhập đủ thông tin';
-        header("location:add_article.php?mess = $mess");
+        $mess = 'Bạn chưa đền đầy đủ dữ liệu';
     }
+
 ?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
@@ -178,8 +179,8 @@ select{
                             <input type="file" name="image" id="image" class="input-file" accept="image/*">
                         </label>
                         
-                    </div>
-                    <?= $mess ?>        
+                    </div>  
+                    <p style="color: red"><?php $mess ?></p>     
                     <div class="form-group  float-end ">
                         <input type="submit" value="Thêm" class="btn btn-success">
                         <a href="article.php" class="btn btn-warning ">Quay lại</a>
