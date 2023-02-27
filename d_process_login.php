@@ -8,7 +8,7 @@
         }
         else
         {
-                $query = "SELECT * FROM users WHERE taikhoan = :user AND matkhau = :pass";  
+                $query = "SELECT * FROM users WHERE ten_dnhap = :user AND mat_khau = :pass";  
                 $statement = $pdo->prepare($query);  
                 $statement->execute(  
                      array(  

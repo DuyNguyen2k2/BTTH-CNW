@@ -1,4 +1,9 @@
-<?php include('./include/header.php') ?>
+<?php include('./include/header.php');
+    include('../include/database-connection.php');
+    $sql = "SELECT * FROM theloai";
+    $statement = $pdo->query($sql);
+    $categories = $statement->fetchAll();
+?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
@@ -14,26 +19,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Nhạc trữ tình</td>
-                            <td>
-                                <a href="edit_category.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Nhạc cách mạng</td>
-                            <td>
-                                <a href="edit_category.php?id=2"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        <?php
+                            $dem = 1;
+                            foreach ($categories as $category) {
+                        ?>
+                            <tr>
+                                <th scope="row"><?= $dem++ ?></th>
+                                <td><?= $category["ten_tloai"]?></td>
+                                <td>
+                                    <a href="edit_category.php?id=<?=$category["ma_tloai"]?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                </td>
+                                <td>
+                                    <a href="include/process_category.php?btn=xóa&id=<?=$category["ma_tloai"]?>"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php
+                            }
+                        ?>
                        
                     </tbody>
                 </table>
